@@ -59,13 +59,17 @@
 					if(data.length) {
 						// Loop through results
 						for(var x = 0; x < data.length; x++) {
+						//for(var x = data.length; x > 0; x--) {
 							var message = document.createElement('div');
 							message.setAttribute('class', 'chat-message');
-							message.textContent = data[x].name + ': ' + data[x].message;
+							message.textContent = 
+								//data[x].time + '/t' +
+								data[x].name + ': ' + 
+								data[x].message;
 
 							// Apppend
 							messages.appendChild(message);
-							messages.insertBefore(message, messages.firstChild);
+							messages.insertBefore(message, messages.lastChild);
 						}
 					}
 					//console.log(data);
