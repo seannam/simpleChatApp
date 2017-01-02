@@ -20,6 +20,9 @@
 
 	<script>
 		(function() {
+			// status messages
+			var isTyping = " is typing";
+
 			var getNode = function(s) {
 				return document.querySelector(s);
 			},
@@ -70,6 +73,8 @@
 							// Apppend
 							messages.appendChild(message);
 							messages.insertBefore(message, messages.lastChild);
+
+							messages.scrollTop = messages.scrollHeight;
 						}
 					}
 					//console.log(data);
@@ -85,12 +90,19 @@
 					}
 				});
 
+				messages.scrollTop = messages.scrollHeight;
+
 				// Listen for keydown
 				textarea.addEventListener('keydown', function(event) {
 					var self = this,
 						name = chatName.value;
 
 					//console.log(event.which);
+
+					/*
+					if(textarea.value !== '') {
+						setStatus(isTyping);
+					} */
 
 					if(event.which === 13 && event.shiftKey === false) {
 						//console.log('send');
